@@ -3,21 +3,22 @@
 #include<iostream>
 using namespace std;
 int main(){
-    int lim, num;
-    cout<<"\n Enter Limit: ";
+    int lim, i;
+    cout<<"Enter Limit: ";
     cin>>lim;
-    for(num=1; num<=lim; num++) {
-        int cnt = 2;
-        int flag = 1;
-        while(cnt < num) {
-            if(num % cnt == 0) {
-                flag = 0;
-                break;
-            }
-            cnt++;    
+    for(i=1; i<=lim; i++) {
+        if(i < 2)  {
+            continue;
         }
-        if(flag == 1) {
-            cout<<num<<"\t";
+        bool prime = true;
+        for(int j=2; j*j<=i; j++) {
+            if(i % j == 0) {
+                prime = false;
+                break;
+            }   
+        }
+        if(prime) {
+            cout<<i<<"\t";
         }
     }
     return 0;
